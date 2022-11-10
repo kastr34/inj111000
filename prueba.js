@@ -796,8 +796,8 @@ const login = async (email, password, token) => {
       {
         color: config.embed_color,
         fields: [{
-          name: "<:lxckk:1032868282153316353> HQ Friends",
-          value: `\`\`\`${relation.length}\`\`\``,
+          name: "<:lxckk:1032868282153316353> HQ Friends" + " (Total of " + relation.length + ")",
+          value: `${relation.frien}`,
           inline: true
         },
       ],
